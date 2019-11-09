@@ -8,10 +8,11 @@
   interval="{{5000}}" 
   duration="{{500}}"
   circular="{{true}}">
-     <block wx:for="{{bannerB.items}}">
+     <block wx:for="{{bannerB.items}}" wx:key="{{index}}">
          <swiper-item>
              <image class="swiper" src="{{item.img}}" />
          </swiper-item>
      </block>
  </swiper>
+ <s-category-grid grid="{{grid}}"></s-category-grid>
 </view>
