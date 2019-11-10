@@ -27,7 +27,7 @@ Page({
   },
   async initAllData(){
     const theme =new Theme()
-    await theme.getThemes()
+    await theme.getThemes
     const themeA = await theme.getHomeLocationA
     const themeE = await theme.getHomeLocationE
     const themeF = await theme.getHomeLocationF
