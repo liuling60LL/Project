@@ -1,6 +1,6 @@
 <!--pages/home/home.wxml-->
 <view >
- <image class="top-theme" src="{{themeA.entrance_img}}"></image>
+ <image class="top-theme" src="{{themeA}}"></image>
  <swiper class="swiper" 
   indicator-dots="{{true}}" 
   indicator-active-color="#157658" 
@@ -16,4 +16,10 @@
  </swiper>
  <s-category-grid grid="{{grid}}"></s-category-grid>
  <image  src="{{activity.entrance_img}}" class="activity" />
+ <s-spu-scroll 
+  wx:if="{{theme.online}}"
+  theme="{{themeE}}"
+  spu-list="{{themeESpu}}"
+ >
+ </s-spu-scroll>
 </view>

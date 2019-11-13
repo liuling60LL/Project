@@ -17,6 +17,7 @@ Page({
     bannerB:null,
     grid: [],
     activity:null,
+    themESpuList:[]
   },
 
   /**
@@ -28,16 +29,26 @@ Page({
   async initAllData(){
     const theme =new Theme()
     await theme.getThemes
+
     const themeA = await theme.getHomeLocationA
     const themeE = await theme.getHomeLocationE
     const themeF = await theme.getHomeLocationF
     const themeH = await theme.getHomeLocationH
+    let themeESpu = []
+    if(themeE.online){
+      const data =await  theme.getHomeLocationESpu
+      if(data){
+        themeESpu = data.spu_list.slice(0,8)
+      }
+    }
+    
     const bannerB =await Banner.getHomeLocationB()
     const grid =await Category.getHomeLocationC()
     const activity = await Activity.getHomeLocationD()
     this.setData({
       themeA,
       themeE,
+      themeESpu,
       themeF,
       themeH,
       bannerB,

@@ -1,9 +1,11 @@
-// components/spu-scroll.js
+// components/spu-scroll/index.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
+    theme:Object,
+    spuList:Array
 
   },
 
