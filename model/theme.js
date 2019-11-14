@@ -5,9 +5,10 @@ class Theme {
   static locationE = 't-2'
   static locationF = 't-3'
   static locationH = 't-4'
+  //实例一个theme对象
   themes = []
 
-  static async getThemes(){
+  async getThemes(){
     const names = `${Theme.locationA},${Theme.locationE},${Theme.locationF},${Theme.locationH}`
     this.themes = await Http.request({
       url:`theme/by/names`,
@@ -18,21 +19,26 @@ class Theme {
   }
 
   async getHomeLocationA() {
-    return themeA =this.themes.find(t => t.name === Theme.locationA)
+    const themeA =this.themes.find(t => t.name === Theme.locationA)
+    return themeA
   }
   async getHomeLocationE() {
-    return themeE =this.themes.find(t => t.name === Theme.locationE)
+    const themeE =this.themes.find(t => t.name === Theme.locationE)
+    return themeE
   }
   async getHomeLocationF() {
-    return themeF =this.themes.find(t => t.name === Theme.locationF)
+    const themeF =this.themes.find(t => t.name === Theme.locationF)
+    return themeF
   }
   async getHomeLocationH() {
-    return themeH=this.themes.find(t => t.name === Theme.locationH)
+    const themeH=this.themes.find(t => t.name === Theme.locationH)
+    return themeH
   }
    async getHomeLocationESpu(){
-    return this.getThemeSpuByName(Theme.locationE)
+    const eSpu =  this.getThemeSpuByName(Theme.locationE)
+     return eSpu
   }
-  static  async getThemeSpuByName(name){
+   async getThemeSpuByName(name){
     return await Http.request({
       url:`theme/name/${name}/with_spu`
     })

@@ -1,6 +1,6 @@
 <!--pages/home/home.wxml-->
 <view >
- <image class="top-theme" src="{{themeA}}"></image>
+ <image class="top-theme" src="{{themeA.entrance_img}}"></image>
  <swiper class="swiper" 
   indicator-dots="{{true}}" 
   indicator-active-color="#157658" 

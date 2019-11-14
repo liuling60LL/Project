@@ -3,8 +3,13 @@
 <scroll-view >
     <block wx:for="{{spuList}}">
         <view >
-            <image  src="{{item.img}}"/>
-            <l-price value="111" color="#157658"></l-price>
+            <image class="spu-img"  src="{{item.img}}"/>
+            <l-price 
+                    value="{{item.price}}" 
+                    color="#157658"
+                    l-value-class="price-value"
+                    l-unit-class="price-unit"
+                    ></l-price>
             <text >{{item.title}}</text>
         </view>
     </block>

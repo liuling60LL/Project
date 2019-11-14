@@ -1,3 +1,9 @@
+/*
+ * @Author: liuling 
+ * @Date: 2019-11-14 14:48:12 
+ * @Last Modified by: liuling
+ * @Last Modified time: 2019-11-14 16:07:08
+ */
 import { Theme } from "../../model/theme";
 import { Banner } from "../../model/banner";
 import { Category } from "../../model/category";
@@ -28,32 +34,32 @@ Page({
   },
   async initAllData(){
     const theme =new Theme()
-    await theme.getThemes
+    await theme.getThemes()
 
-    const themeA = await theme.getHomeLocationA
-    const themeE = await theme.getHomeLocationE
-    const themeF = await theme.getHomeLocationF
-    const themeH = await theme.getHomeLocationH
+    const themeA = await theme.getHomeLocationA()
+    const themeE = await theme.getHomeLocationE()
+    const themeF = await theme.getHomeLocationF()
+    const themeH = await theme.getHomeLocationH()
     let themeESpu = []
     if(themeE.online){
       const data =await  theme.getHomeLocationESpu
       if(data){
-        themeESpu = data.spu_list.slice(0,8)
+        // themeESpu = data.spu_list.slice(0,8)
       }
     }
     
-    const bannerB =await Banner.getHomeLocationB()
-    const grid =await Category.getHomeLocationC()
-    const activity = await Activity.getHomeLocationD()
+    // const bannerB =await Banner.getHomeLocationB()
+    // const grid =await Category.getHomeLocationC()
+    // const activity = await Activity.getHomeLocationD()
     this.setData({
       themeA,
       themeE,
       themeESpu,
       themeF,
       themeH,
-      bannerB,
-      grid,
-      activity
+      // bannerB,
+      // grid,
+      // activity
     })
   },
 
