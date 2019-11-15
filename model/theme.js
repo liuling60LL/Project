@@ -34,12 +34,13 @@ class Theme {
     const themeH=this.themes.find(t => t.name === Theme.locationH)
     return themeH
   }
-   async getHomeLocationESpu(){
-    const eSpu =  this.getThemeSpuByName(Theme.locationE)
+  // 获取一次可声明实例 static
+   static getHomeLocationESpu(){
+    const eSpu =  Theme.getThemeSpuByName(Theme.locationE)
      return eSpu
   }
-   async getThemeSpuByName(name){
-    return await Http.request({
+   static getThemeSpuByName(name){
+    return  Http.request({
       url:`theme/name/${name}/with_spu`
     })
   }

@@ -2,7 +2,7 @@
  * @Author: liuling 
  * @Date: 2019-11-14 14:48:12 
  * @Last Modified by: liuling
- * @Last Modified time: 2019-11-14 16:07:08
+ * @Last Modified time: 2019-11-15 16:07:45
  */
 import { Theme } from "../../model/theme";
 import { Banner } from "../../model/banner";
@@ -33,33 +33,35 @@ Page({
     this.initAllData()
   },
   async initAllData(){
+    //声明一个Theme实例对象  对象可以保存状态  类只可保存数据
     const theme =new Theme()
     await theme.getThemes()
 
     const themeA = await theme.getHomeLocationA()
     const themeE = await theme.getHomeLocationE()
-    const themeF = await theme.getHomeLocationF()
-    const themeH = await theme.getHomeLocationH()
+    //
     let themeESpu = []
     if(themeE.online){
-      const data =await  theme.getHomeLocationESpu
+      const data =await  Theme.getHomeLocationESpu()
       if(data){
-        // themeESpu = data.spu_list.slice(0,8)
+        themeESpu = data.spu_list.slice(0,8)//slice() 从数组中选择一个区间的元素
       }
     }
-    
-    // const bannerB =await Banner.getHomeLocationB()
-    // const grid =await Category.getHomeLocationC()
-    // const activity = await Activity.getHomeLocationD()
+    const themeF = await theme.getHomeLocationF()
+    const themeH = await theme.getHomeLocationH()
+   
+    const bannerB =await Banner.getHomeLocationB()
+    const grid =await Category.getHomeLocationC()
+    const activity = await Activity.getHomeLocationD()
     this.setData({
       themeA,
       themeE,
       themeESpu,
       themeF,
       themeH,
-      // bannerB,
-      // grid,
-      // activity
+      bannerB,
+      grid,
+      activity
     })
   },
 

@@ -1,8 +1,8 @@
 <view class="container">
 <image  class="title" src="{{theme.title_img}}"/>
-<scroll-view >
-    <block wx:for="{{spuList}}">
-        <view >
+<scroll-view class="scroll-view" enable-flex="{{true}}"  scroll-x="{{true}}">
+    <block wx:for="{{spuList}}" wx:key="index">
+        <view class="spu-container">
             <image class="spu-img"  src="{{item.img}}"/>
             <l-price 
                     value="{{item.price}}" 
@@ -10,7 +10,7 @@
                     l-value-class="price-value"
                     l-unit-class="price-unit"
                     ></l-price>
-            <text >{{item.title}}</text>
+            <text class="spu-title">{{item.title}}</text>
         </view>
     </block>
 </scroll-view>

@@ -1,25 +1,31 @@
 <!--pages/home/home.wxml-->
 <view >
+<!-- 首图 -->
  <image class="top-theme" src="{{themeA.entrance_img}}"></image>
+ <!-- 轮播图 -->
  <swiper class="swiper" 
-  indicator-dots="{{true}}" 
-  indicator-active-color="#157658" 
-  autoplay="{{true}}" 
-  interval="{{5000}}" 
-  duration="{{500}}"
-  circular="{{true}}">
+    indicator-dots="{{true}}" 
+    indicator-active-color="#157658" 
+    autoplay="{{true}}" 
+    interval="{{5000}}" 
+    duration="{{500}}"
+    circular="{{true}}">
      <block wx:for="{{bannerB.items}}" wx:key="{{index}}">
          <swiper-item>
              <image class="swiper" src="{{item.img}}" />
          </swiper-item>
      </block>
  </swiper>
+ <!-- 六宫格 -->
  <s-category-grid grid="{{grid}}"></s-category-grid>
+ <!-- 优惠券活动入口 -->
  <image  src="{{activity.entrance_img}}" class="activity" />
+ <!-- 每周上新 -->
  <s-spu-scroll 
-  wx:if="{{theme.online}}"
+  wx:if="{{themeE.online}}"
   theme="{{themeE}}"
   spu-list="{{themeESpu}}"
  >
  </s-spu-scroll>
+
 </view>
