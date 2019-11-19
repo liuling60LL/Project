@@ -31,4 +31,9 @@
  <!-- <image  src="{{themeF.entrance_img}}" class="quality" /> -->
 <!-- 热卖榜单 -->
 <s-hot-list banner="{{bannerG}}"></s-hot-list>
+<image src="{{themeH.entrance_img}}" class="fashion"/>
+<!-- 瀑布流 -->
+<view class="spu-bottom">
+    <image src="/imgs/home/title@interest.png" class="title-spu-bottom"/>
+</view>
 </view>
