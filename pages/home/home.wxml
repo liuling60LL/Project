@@ -1,9 +1,9 @@
 <!--pages/home/home.wxml-->
 <view >
 <!-- 首图 -->
- <image class="top-theme" src="{{themeA.entrance_img}}"></image>
+ <!-- <image class="top-theme" src="{{themeA.entrance_img}}"></image> -->
  <!-- 轮播图 -->
- <swiper class="swiper" 
+ <!-- <swiper class="swiper" 
     indicator-dots="{{true}}" 
     indicator-active-color="#157658" 
     autoplay="{{true}}" 
@@ -15,17 +15,20 @@
              <image class="swiper" src="{{item.img}}" />
          </swiper-item>
      </block>
- </swiper>
+ </swiper> -->
  <!-- 六宫格 -->
- <s-category-grid grid="{{grid}}"></s-category-grid>
+ <!-- <s-category-grid grid="{{grid}}"></s-category-grid> -->
  <!-- 优惠券活动入口 -->
- <image  src="{{activity.entrance_img}}" class="activity" />
+ <!-- <image  src="{{activity.entrance_img}}" class="activity" /> -->
  <!-- 每周上新 -->
- <s-spu-scroll 
+ <!-- <s-spu-scroll 
   wx:if="{{themeE.online}}"
   theme="{{themeE}}"
   spu-list="{{themeESpu}}"
  >
- </s-spu-scroll>
-
+ </s-spu-scroll> -->
+<!-- 甄选入口 -->
+ <!-- <image  src="{{themeF.entrance_img}}" class="quality" /> -->
+<!-- 热卖榜单 -->
+<s-hot-list banner="{{bannerG}}"></s-hot-list>
 </view>

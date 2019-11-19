@@ -1,0 +1,9 @@
+<!--components/hot-list/index.wxml-->
+<view class="container">
+    <image  src="{{banner.img}}"/>
+    <view class="inner-container">
+        <image src="{{left.img}}"  class=""/>
+        <image src="{{rightTop.img}}"  class=""/>
+        <image src="{{rightBottom.img}}"  class=""/>
+    </view>
+</view>

@@ -1,21 +1,24 @@
 /* components/spu-scroll/index.wxss */
 .container{
     padding: 42rpx 0 34rpx 28rpx;
+    background-color: #ffffff;
 }
 .title{
     width: 694rpx;
     height: 90rpx;
 }
 .price-unit{
-    font-size: 28rpx !important;
+    font-size: 24rpx !important;
 }
 .price-value{
-    font-size: 32rpx !important;
+    font-size: 26rpx !important;
 }
 .scroll-view{
-    display: flex;
-    flex-direction: row;
     margin-top: 28rpx;
+}
+.inner{
+   display: flex;
+    flex-direction: row;
 }
 .spu-container{
     display: flex;
@@ -28,5 +31,7 @@
     height: 160rpx;
 }
 .spu-title{
-    font-size: 28rpx;
+    font-size: 20rpx;
+    color: #666666;
+    margin-top: 20rpx;
 }

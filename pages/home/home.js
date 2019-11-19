@@ -2,7 +2,7 @@
  * @Author: liuling 
  * @Date: 2019-11-14 14:48:12 
  * @Last Modified by: liuling
- * @Last Modified time: 2019-11-15 16:07:45
+ * @Last Modified time: 2019-11-19 17:13:13
  */
 import { Theme } from "../../model/theme";
 import { Banner } from "../../model/banner";
@@ -21,6 +21,7 @@ Page({
     themeF: null,
     themeH: null,
     bannerB:null,
+    bannerG:null,
     grid: [],
     activity:null,
     themESpuList:[]
@@ -53,6 +54,7 @@ Page({
     const bannerB =await Banner.getHomeLocationB()
     const grid =await Category.getHomeLocationC()
     const activity = await Activity.getHomeLocationD()
+    const bannerG =await Banner.getHomeLocationG()
     this.setData({
       themeA,
       themeE,
@@ -60,6 +62,7 @@ Page({
       themeF,
       themeH,
       bannerB,
+      bannerG,
       grid,
       activity
     })
