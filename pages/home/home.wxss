@@ -26,6 +26,7 @@
    display: flex;
    height: 840rpx;
    margin-top: 20rpx;
+   width: 100%;
  }
  .spu-bottom{
    margin-top:20rpx;
