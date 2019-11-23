@@ -33,11 +33,10 @@
 <!-- <s-hot-list banner="{{bannerG}}"></s-hot-list>
 <image src="{{themeH.entrance_img}}" class="fashion"/> -->
 <!-- 为你推荐 -->
-<!-- <view class="spu-bottom">
+<view class="spu-bottom">
     <image src="/imgs/home/title@interest.png" class="title-spu-bottom"/>
-</view> -->
-<!-- 瀑布流 -->
-<view class="">
-    <l-water-flow generic:l-water-flow=""></l-water-flow>
+    <l-water-flow generic:l-water-flow-item="s-spu-preview"></l-water-flow>
 </view>
+<!-- 瀑布流 -->
+
 </view>

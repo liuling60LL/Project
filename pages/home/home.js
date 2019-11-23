@@ -2,12 +2,13 @@
  * @Author: liuling 
  * @Date: 2019-11-14 14:48:12 
  * @Last Modified by: liuling
- * @Last Modified time: 2019-11-19 17:13:13
+ * @Last Modified time: 2019-11-23 15:37:25
  */
 import { Theme } from "../../model/theme";
 import { Banner } from "../../model/banner";
 import { Category } from "../../model/category";
 import { Activity } from "../../model/activity";
+import { SpuPaging } from "../../model/spu-paging";
 
 // pages/home/home.js
 Page({
@@ -24,7 +25,8 @@ Page({
     bannerG:null,
     grid: [],
     activity:null,
-    themESpuList:[]
+    themESpuList:[],
+    spuPaging:null
   },
 
   /**
@@ -32,6 +34,17 @@ Page({
    */
   async onLoad(options) {
     this.initAllData()
+    this.initBottomSpuList()
+  },
+  async initBottomSpuList(){
+    const paging = await SpuPaging.getLatestPaging()
+    this.data.spuPaging = paging
+    const data = await paging.getMoreData()
+    if(!data){
+      return
+    }
+    //初始化瀑布流
+    wx.lin.renderWaterFlow(data.items)
   },
   async initAllData(){
     //声明一个Theme实例对象  对象可以保存状态  类只可保存数据
@@ -106,7 +119,12 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: async function () {
+    const data = await this.data.spuPaging.getMoreData()
+    if(!data){
+      return
+    }
+    wx.lin.renderWaterFlow(data.items)
 
   },
 

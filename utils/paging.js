@@ -5,9 +5,9 @@ class Paging{
     req   //url参数
     start  //获取记录的起始序号
     count //一次获取记录的条数
-    locker 
+    locker  = false
     url
-    moreData 
+    moreData = true
     accumulator=[] //累加器
 
     //初始化 构造函数
@@ -18,13 +18,13 @@ class Paging{
         this.url = req.url
     }
     //不断获取新数据
-    getMoreData(){
-        if(!this.moreData){
-            return 
-        }
-        if(!this._getLocker()){
-            return
-        }
+    async getMoreData(){
+        // if(!this.moreData){
+        //     return 
+        // }
+        // if(!this._getLocker()){
+        //     return
+        // }
         const data = await this._actualGetData()
         this._releaseLocker()
         return data
@@ -73,7 +73,7 @@ class Paging{
         //url 路径拼接的两种情况
         // url=v1/spu/latest+'?'+params
         // url=v1/spu/latest?other=123+'&'+params
-        if(url.indexOf('?') !== -1){
+        if(url.includes('?') ){
             url += '&'+params
         }else{
             url += '?' +params
