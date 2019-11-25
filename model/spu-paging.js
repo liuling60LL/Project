@@ -11,7 +11,7 @@ class SpuPaging{
         //实例化一个Paging对象
         return new Paging({
             url:`spu/latest`
-        },3)
+        },5)
     }
 }
 export{

@@ -19,12 +19,12 @@ class Paging{
     }
     //不断获取新数据
     async getMoreData(){
-        // if(!this.moreData){
-        //     return 
-        // }
-        // if(!this._getLocker()){
-        //     return
-        // }
+        if(!this.moreData){
+            return 
+        }
+        if(!this._getLocker()){
+            return
+        }
         const data = await this._actualGetData()
         this._releaseLocker()
         return data
@@ -46,7 +46,7 @@ class Paging{
                 accumulator:[],//累计数据
             }
         }
-        let moreData = Paging._moreData(paging.total_page,paging.page)
+        this.moreData = Paging._moreData(paging.total_page,paging.page)
         if(this.moreData){
             this.start += this.count
         }
@@ -86,10 +86,12 @@ class Paging{
         if(this.locker){
             return false
         }
+        this.locker = true
+        return true
     }
     //释放锁
     _releaseLocker(){
-
+        this.locker = false
     }
 
 }

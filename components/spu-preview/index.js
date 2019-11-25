@@ -40,6 +40,20 @@ Component({
         w:340,
         h:340*height/width
       })
+    },
+
+    onItemTap(event){
+      console.log(event);
+      const  pid =event.currentTarget.dataset.pid
+      wx.navigateTo({
+        url: `/pages/detail/detail?pid=${pid}`,
+        success: (result)=>{
+          console.log('跳转成功');
+        },
+        fail: ()=>{console.log('跳转失败');},
+        complete: ()=>{}
+      });
     }
+
   }
 })

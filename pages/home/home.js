@@ -1,9 +1,3 @@
-/*
- * @Author: liuling 
- * @Date: 2019-11-14 14:48:12 
- * @Last Modified by: liuling
- * @Last Modified time: 2019-11-25 14:12:52
- */
 import { Theme } from "../../model/theme";
 import { Banner } from "../../model/banner";
 import { Category } from "../../model/category";
@@ -26,7 +20,8 @@ Page({
     grid: [],
     activity:null,
     themESpuList:[],
-    spuPaging:null
+    spuPaging:null,
+    loadingType:'loading'
   },
 
   /**
@@ -125,7 +120,13 @@ Page({
       return
     }
     wx.lin.renderWaterFlow(data.items)
-
+    console.log(data.moreData);
+    
+    if(!data.moreData){
+      this.setData({
+        loadingType:'end'
+      })
+    }
   },
 
   /**
