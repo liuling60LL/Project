@@ -2,7 +2,7 @@
  * @Author: liuling 
  * @Date: 2019-11-14 14:48:12 
  * @Last Modified by: liuling
- * @Last Modified time: 2019-11-23 15:37:25
+ * @Last Modified time: 2019-11-25 14:12:52
  */
 import { Theme } from "../../model/theme";
 import { Banner } from "../../model/banner";
@@ -43,7 +43,7 @@ Page({
     if(!data){
       return
     }
-    //初始化瀑布流
+    //初始化瀑布流,内部已实现累加
     wx.lin.renderWaterFlow(data.items)
   },
   async initAllData(){

@@ -46,7 +46,7 @@ class Paging{
                 accumulator:[],//累计数据
             }
         }
-        let moreData = Paging._moreData(paging.total_page,paging.page_num)
+        let moreData = Paging._moreData(paging.total_page,paging.page)
         if(this.moreData){
             this.start += this.count
         }
@@ -69,7 +69,7 @@ class Paging{
     //获取当前的请求对象
     _getCurrentReq(){
         let url =this.url
-        const params =`start = ${this.start}&count=${this.count}`
+        const params =`start=${this.start}&count=${this.count}`//url路径不能有空格，容易报错
         //url 路径拼接的两种情况
         // url=v1/spu/latest+'?'+params
         // url=v1/spu/latest?other=123+'&'+params

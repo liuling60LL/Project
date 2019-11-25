@@ -16,12 +16,18 @@ function mainPrice(price,discountPrice){
 //折线划线价
 function slashedPrice(price,discountPrice){
   if(discountPrice){
-    return price
+    return {
+      price:price,
+      display:true
+    }
   }else{
-    return
+    return {
+      price:null,
+      display:false
+    }
   }
 }
-module.export ={
+module.exports ={
   mainPrice:mainPrice,
   slashedPrice:slashedPrice
 }

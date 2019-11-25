@@ -15,7 +15,7 @@
       value-size="28"
       unit-size="20"
       autofix
-      value="{{p.mianPrice(data.price,data.discount_price).price}}" >
+      value="{{p.mainPrice(data.price,data.discount_price).price}}">
       </l-price>
     <l-price  
       color="#999999"
