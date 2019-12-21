@@ -34,6 +34,7 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    // 动态计算图片宽高
     onImgLoad(event){
       const {width,height} = event.detail
       this.setData({

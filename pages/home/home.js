@@ -120,8 +120,6 @@ Page({
       return
     }
     wx.lin.renderWaterFlow(data.items)
-    console.log(data.moreData);
-    
     if(!data.moreData){
       this.setData({
         loadingType:'end'
