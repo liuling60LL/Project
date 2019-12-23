@@ -1,2 +1,13 @@
-<!--components/realm/index.wxml-->
-<text>components/realm/index.wxml</text>
+<view class="container" >
+    <view class="" hover-class="none" hover-stop-propagation="false">
+        <image class="" src="" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+            
+        </image>
+    </view>
+    <block wx:for="{{}}">
+        <s-fence></s-fence>
+    </block>
+    <view class="conuter-container" hover-class="none" hover-stop-propagation="false">
+        
+    </view>
+</view>

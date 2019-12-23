@@ -4,7 +4,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    spu:Object
   },
 
   /**
@@ -12,6 +12,22 @@ Component({
    */
   data: {
 
+  },
+
+  //生命周期函数
+  lifetimes:{
+    attached(){
+
+    }
+  },
+  
+  //监听器
+  observers:{
+    'spu':function(spu){
+      if(!spu){
+        return
+      }
+    }
   },
 
   /**
