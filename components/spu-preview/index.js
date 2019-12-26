@@ -44,12 +44,12 @@ Component({
     },
 
     onItemTap(event){
-      console.log(event);
+      // console.log(event);
       const  pid =event.currentTarget.dataset.pid
       wx.navigateTo({
         url: `/pages/detail/detail?pid=${pid}`,
         success: (result)=>{
-          console.log('跳转成功');
+          // console.log('跳转成功');
         },
         fail: ()=>{console.log('跳转失败');},
         complete: ()=>{}

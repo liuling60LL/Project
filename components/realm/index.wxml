@@ -4,7 +4,7 @@
             
         </image>
     </view>
-    <block wx:for="{{}}">
+    <block wx:for="{{}}" wx:key="index">
         <s-fence></s-fence>
     </block>
     <view class="conuter-container" hover-class="none" hover-stop-propagation="false">

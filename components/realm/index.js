@@ -1,3 +1,5 @@
+import { FenceGroup } from "../models/fence-group"
+
 // components/realm/index.js
 Component({
   /**
@@ -17,16 +19,21 @@ Component({
   //生命周期函数
   lifetimes:{
     attached(){
-
+      //在组件实例进入页面节点树时执行
+    },
+    detached(){
+      //移除时执行
     }
   },
   
-  //监听器
+  //监听器 -最适合处理数据
   observers:{
-    'spu':function(spu){
-      if(!spu){
-        return
+    'spu': function (spu) {
+      if (!spu) {
+          return
       }
+      const fenceGroup = new FenceGroup(spu)
+      fenceGroup.initFences()
     }
   },
 
