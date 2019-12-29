@@ -3,7 +3,7 @@ import {Matrix} from "./matrix"
 class FenceGroup{
     spu
     skuList = []
-    // fences = []
+    fences = []
 
     //初始化构造函数
     constructor(spu){
@@ -26,12 +26,14 @@ class FenceGroup{
         // });
         // console.log('fence',fences);
         const AT = matrix.transpose()
-        console.log('AT',AT);
+        // console.log('AT',AT);
         AT.forEach(r => {
             const fence = new Fence(r)
             fence.init()
             fences.push(fence)
         });
+        this.fences = fences
+        console.log(fences);
     }
     _createFence(element){
         console.log('element',element);
