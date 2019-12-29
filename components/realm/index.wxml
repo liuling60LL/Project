@@ -1,13 +1,11 @@
 <view class="container" >
-    <view class="" hover-class="none" hover-stop-propagation="false">
-        <image class="" src="" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
-            
-        </image>
+    <view class="">
+        <image></image>
     </view>
     <block wx:for="{{}}" wx:key="index">
         <s-fence></s-fence>
     </block>
-    <view class="conuter-container" hover-class="none" hover-stop-propagation="false">
-        
+    <view class="counter-container" >
+        <!-- <l-counter></l-counter> -->
     </view>
 </view>

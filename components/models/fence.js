@@ -1,8 +1,9 @@
 import { Cell } from "./cell";
 
 class Fence{
-    valueTitles = []
+    valueTitles = [] //规格值 名字
     specs
+    cells = []
 
     constructor(specs){
         this.specs = specs

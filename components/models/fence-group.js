@@ -2,27 +2,27 @@ import {Fence} from "./fence"
 import {Matrix} from "./matrix"
 class FenceGroup{
     spu
-    skuList =[]
+    skuList = []
     // fences = []
 
     //初始化构造函数
     constructor(spu){
         this.spu = spu
-        this.spuList = spu.sku_list
+        this.skuList = spu.sku_list
     }
 
     //主方法-初始化fences
     initFences(){
-        const matrix=this._createMatrix(this.skuList)
-        const fences=[]
+        const matrix = this._createMatrix(this.skuList)
+        const fences = []
         // let currentJ= -1
-        // matrix.forEach((element,i,j) => {
+        // matrix.each((element,i,j) => {
         //     if(currentJ !==j){
         //         //开启一个新列，需要创建一个新的fence
         //         currentJ =j
         //         fences[currentJ]=this._createFence(element)
         //     }
-        //     fences[currentJ].pushValueTitles(element.value)
+        //     // fences[currentJ].pushValueTitles(element.value)
         // });
         // console.log('fence',fences);
         const AT = matrix.transpose()
@@ -34,9 +34,10 @@ class FenceGroup{
         });
     }
     _createFence(element){
+        console.log('element',element);
         const fence=new Fence()//不能传入r  同一种规格的同一种值
+        // fence.pushValueTitles(element.value)
         return fence
-        // fence.pushValueTitles(element,value)
     }
 
     _createMatrix(skuList) {
@@ -44,7 +45,7 @@ class FenceGroup{
         skuList.forEach(sku => {
             m.push(sku.specs)
         })
-        return new Matrix(m)
+        return new Matrix(m) //返回类
     }
 }
 export {

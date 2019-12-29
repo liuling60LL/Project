@@ -1,15 +1,15 @@
 class Matrix {
-    m =[]
+    m 
 
     constructor(matrix) {
-        console.log(typeof this.m);//undefined
         this.m = matrix
     }
 
+    //行数
     get rowsNum() {
         return this.m.length
     }
-
+    //列数
     get colsNum() {
         return this.m[0].length
     }
