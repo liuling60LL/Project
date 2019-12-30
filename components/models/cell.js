@@ -3,7 +3,7 @@ class Cell{
     id
 
     constructor(spec) {
-        this.spec=spec.value
+        this.title=spec.value
         this.id=spec.value_id
     }
 }
