@@ -18,6 +18,14 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    onTap(event){
+      console.log(event);
+      this.triggerEvent('celltap',{
+        cell:this.properties.cell
+      },{
+        bubbles: true,//事件是否冒泡
+        composed: true //事件是否可以穿越组件边界
+      })
+    }
   }
 })

@@ -14,7 +14,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    judger:Object
   },
 
   //生命周期函数
@@ -36,6 +36,7 @@ Component({
       const fenceGroup = new FenceGroup(spu)
       fenceGroup.initFences()
       const judger = new Judger(fenceGroup)
+      this.data.judger = judger
       this.bindInitData(fenceGroup)
     }
   },
@@ -48,6 +49,16 @@ Component({
       this.setData({
         fences:fenceGroup.fences
       })
+    },
+
+    //点击cell 触发
+    onCellTap(event){
+     const cell = event.detail.cell
+     const judger = this.data.judger
+     judger.judge(cell)
+     this.setData({
+      fences:judger.fenceGroup.fences
+     })
     }
   }
 })

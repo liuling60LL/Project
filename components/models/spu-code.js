@@ -22,7 +22,7 @@ class SkuCode{
               return segs.join('#')
           })
           this.totalSegments = this.totalSegments.concat(newSegments)
-          console.log(newSegments);
+        //   console.log(newSegments);
           
         }
     }

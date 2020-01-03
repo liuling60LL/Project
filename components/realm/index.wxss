@@ -5,6 +5,7 @@
     max-height:1000rpx;
     min-height: 700rpx;
     margin-bottom: 100rpx;
+    padding: 0 20rpx;
 }
 
 .inner-container{
