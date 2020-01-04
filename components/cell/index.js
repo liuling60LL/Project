@@ -4,7 +4,9 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    cell:Object
+    cell:Object,
+    y:Number,//在矩阵中的行列号
+    x:Number
   },
 
   /**
@@ -19,9 +21,11 @@ Component({
    */
   methods: {
     onTap(event){
-      console.log(event);
+      // console.log(event);
       this.triggerEvent('celltap',{
-        cell:this.properties.cell
+        cell:this.properties.cell,
+        x:this.properties.x,
+        y:this.properties.y
       },{
         bubbles: true,//事件是否冒泡
         composed: true //事件是否可以穿越组件边界

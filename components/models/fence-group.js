@@ -35,6 +35,16 @@ class FenceGroup{
         this.fences = fences
         // console.log(fences);
     }
+
+    eachCell(cb){
+        for(let i =0;i<this.fences.length;i++){//行
+            for(let j =0;j<this.fences[i].cells.length;j++){//列
+                const cell= this.fences[i].cells[j]
+                cb(cell,i,j)
+            }
+        }
+    }
+
     _createFence(element){
         console.log('element',element);
         const fence=new Fence()//不能传入r  同一种规格的同一种值

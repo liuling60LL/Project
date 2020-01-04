@@ -1,13 +1,21 @@
 import { SkuCode } from "./spu-code"
 import { CellStatus } from "../../core/enum"
+import { SkuPending } from "./sku-pending"
+import { Joiner } from "../../utils/joiner"
 
 class Judger{
     fenceGroup
-    pathDict = []
+    pathDict = []//code码 组合 集合
+    skuPending
 
     constructor(fenceGroup){
         this.fenceGroup = fenceGroup
         this._initPathDict()
+        this._initSkuPending()
+    }
+
+    _initSkuPending(){
+        this.skuPending = new SkuPending()
     }
 
     _initPathDict(){
@@ -18,14 +26,49 @@ class Judger{
         // console.log(this.pathDict);
     }
 
-    judge(cell){
-        this._changeCellStatus(cell)
+    judge(cell,x,y){
+        this._changeCurrentCellStatus(cell,x,y)
+        this.fenceGroup.eachCell((cell, x, y) => {
+            const path = this._findPotentialPath(cell, x, y)
+            console.log("path",path);//undefined
+        })
     }
-    _changeCellStatus(cell){
+
+    //寻找潜在路径
+    _findPotentialPath(cell,x,y){
+        const joiner = new Joiner('#')
+        for(let i=0;i<this.fenceGroup.fences.length;i++){
+            //x:当前行 i:已选的元素
+            const selected = this.skuPending.findSelectedCellByX(i)
+            if(x === i){
+                // console.log('当前行');
+                const cellCode = this._getCellCode(cell.spec)
+                joiner.join(cellCode)
+            }else{
+                //其他行  需要判断
+                if(selected){
+                    const selectedCellCode = this._getCellCode(selected.spec)
+                    joiner.join(selectedCellCode)
+                }
+            }
+        }
+    }
+
+    _getCellCode(spec) {
+        return spec.key_id + '-' + spec.value_id
+    }
+
+    //cell当前状态
+    _changeCurrentCellStatus(cell,x,y){
         if(cell.status === CellStatus.WAITING){
-            cell.status = CellStatus.SELECTED
-        }if(cell.status === CellStatus.SELECTED){
-            cell.status = CellStatus.WAITING
+            // cell.status = CellStatus.SELECTED
+            this.fenceGroup.fences[x].cells[y].status = CellStatus.SELECTED
+            this.skuPending.insertCell(cell,x)
+        }
+        if(cell.status === CellStatus.SELECTED){
+            // cell.status = CellStatus.WAITING
+            this.fenceGroup.fences[x].cells[y].status =CellStatus.WAITING
+            this.skuPending.removeCell(x)
         }
     }
     //私有的方法 在前面加下滑线_
