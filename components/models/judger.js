@@ -30,8 +30,22 @@ class Judger{
         this._changeCurrentCellStatus(cell,x,y)
         this.fenceGroup.eachCell((cell, x, y) => {
             const path = this._findPotentialPath(cell, x, y)
-            console.log("path",path);//undefined
+            // console.log("path",path);
+            if(!path){
+                return
+            }
+            const isIn = this._isInDict(path)
+            if(isIn){
+                this.fenceGroup.fences[x].cells[y].status = CellStatus.WAITING
+            }else{
+                this.fenceGroup.fences[x].cells[y].status = CellStatus.FORBIDDEN
+            }
         })
+    }
+
+    //判断路径是否在字典里
+    _isInDict(path){
+        return this.pathDict.includes(path)
     }
 
     //寻找潜在路径
@@ -41,7 +55,9 @@ class Judger{
             //x:当前行 i:已选的元素
             const selected = this.skuPending.findSelectedCellByX(i)
             if(x === i){
-                // console.log('当前行');
+                if(this.skuPending.isSelected(cell,x)){
+                    return
+                }
                 const cellCode = this._getCellCode(cell.spec)
                 joiner.join(cellCode)
             }else{
@@ -52,6 +68,7 @@ class Judger{
                 }
             }
         }
+        return joiner.getStr()
     }
 
     _getCellCode(spec) {

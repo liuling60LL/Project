@@ -1,7 +1,38 @@
 <view class="container" >
-    <view class="">
-        <image></image>
+    <view class="sku-preview">
+        <image class="sku-img"></image>
+        <view class="sku-description" >
+            <text class="title" >
+                测试SKU
+            </text>
+            <view class="" >
+                <view class="price-row">
+                   <l-price
+                                value="777"
+                                color="#157658"
+                                value-size="28"
+                                autofix></l-price>
+
+                        <l-price 
+                                 deleted
+                                 color="#999999"
+                                 value-size="26"
+                                 l-class="discount-price"
+                                 value="666">
+                        </l-price>
+                </view>
+                <view class="sku-pending">
+                    <text class="" >
+                        请选择：
+                    </text>
+                </view>
+            </view>
+            
+        </view>
     </view>
+
+    <view class="hr"></view>
+    
     <block wx:for="{{fences}}" wx:key="{{index}}">
         <s-fence x="{{index}}" bind:celltap="onCellTap" fence="{{item}}"></s-fence>
     </block>
