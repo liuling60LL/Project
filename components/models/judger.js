@@ -16,6 +16,14 @@ class Judger{
 
     _initSkuPending(){
         this.skuPending = new SkuPending()
+        const defaultSku = this.fenceGroup.getDefaultSku()
+        if(!defaultSku){
+            return
+        }
+        this.skuPending.init(defaultSku)
+        this.judge(null,null,null,true)
+        console.log(this.skuPending);
+        
     }
 
     _initPathDict(){
@@ -26,8 +34,10 @@ class Judger{
         // console.log(this.pathDict);
     }
 
-    judge(cell,x,y){
-        this._changeCurrentCellStatus(cell,x,y)
+    judge(cell,x,y,isInit=false){
+        if(!isInit){
+            this._changeCurrentCellStatus(cell,x,y)
+        }
         this.fenceGroup.eachCell((cell, x, y) => {
             const path = this._findPotentialPath(cell, x, y)
             // console.log("path",path);

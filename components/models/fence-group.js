@@ -11,6 +11,14 @@ class FenceGroup{
         this.skuList = spu.sku_list
     }
 
+    getDefaultSku(){
+        const defaultSkuId = this.spu.default_sku_id
+        if(!defaultSkuId){
+            return
+        }
+        return this.skuList.find(s=>s.id === defaultSkuId)
+    }
+
     //主方法-初始化fences
     initFences(){
         const matrix = this._createMatrix(this.skuList)
