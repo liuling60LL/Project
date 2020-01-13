@@ -14,7 +14,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-    judger:Object
+    judger:Object,
+    previewImg:String
   },
 
   //生命周期函数
@@ -37,6 +38,12 @@ Component({
       fenceGroup.initFences()
       const judger = new Judger(fenceGroup)
       this.data.judger = judger
+      const defaultSku = fenceGroup.getDefaultSku()
+      if(defaultSku){
+        this.bindSkuData(defaultSku)
+      }else{
+        this.bindSpuData()
+      }
       this.bindInitData(fenceGroup)
     }
   },
@@ -45,6 +52,23 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    bindSpuData(){
+      const spu = this.properties.spu
+      this.setData({
+        previewImg:spu.img,
+        title:spu.title,
+        price:spu.price,
+        discountPrice:spu.discount_price
+      })
+    },
+    bindSkuData(sku){
+      this.setData({
+        previewImg:sku.img,
+        title:sku.title,
+        price:sku.price,
+        discountPrice:sku.discount_price
+      })
+    },
     bindInitData(fenceGroup){
       this.setData({
         fences:fenceGroup.fences//模型对象

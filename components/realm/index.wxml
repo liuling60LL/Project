@@ -1,24 +1,25 @@
+<wxs src="../../wxs/price.wxs" module="p"></wxs>
 <view class="container" >
     <view class="sku-preview">
-        <image class="sku-img"></image>
+        <image src="{{previewImg}}" class="sku-img"></image>
         <view class="sku-description" >
             <text class="title" >
-                测试SKU
+                {{title}}
             </text>
             <view class="" >
                 <view class="price-row">
                    <l-price
-                                value="777"
-                                color="#157658"
-                                value-size="28"
-                                autofix></l-price>
+                        value="{{p.mainPrice(price,discountPrice).price}}"
+                        color="#157658"
+                        value-size="28"
+                        autofix></l-price>
 
-                        <l-price 
-                                 deleted
-                                 color="#999999"
-                                 value-size="26"
-                                 l-class="discount-price"
-                                 value="666">
+                        <l-price wx:if="{{p.slashedPrice(price,discountPrice).display}}"
+                            deleted
+                            color="#999999"
+                            value-size="26"
+                            l-class="discount-price"
+                            value="{{p.slashedPrice(price,discountPrice).price}}">
                         </l-price>
                 </view>
                 <view class="sku-pending">

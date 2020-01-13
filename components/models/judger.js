@@ -21,9 +21,17 @@ class Judger{
             return
         }
         this.skuPending.init(defaultSku)
+        //初始化已选中的相关的cell
+        this._initSelectedCell()
         this.judge(null,null,null,true)
-        console.log(this.skuPending);
+        // console.log(this.skuPending);
         
+    }
+
+    _initSelectedCell(){
+        this.skuPending.pending.forEach(cell =>{
+            this.fenceGroup.setCellStatusById(cell.id,CellStatus.SELECTED)
+        })
     }
 
     _initPathDict(){
@@ -46,9 +54,9 @@ class Judger{
             }
             const isIn = this._isInDict(path)
             if(isIn){
-                this.fenceGroup.fences[x].cells[y].status = CellStatus.WAITING
+                this.fenceGroup.setCellStatusByXY(x,y,CellStatus.WAITING)
             }else{
-                this.fenceGroup.fences[x].cells[y].status = CellStatus.FORBIDDEN
+                this.fenceGroup.setCellStatusByXY(x,y,CellStatus.FORBIDDEN)
             }
         })
     }
@@ -89,12 +97,12 @@ class Judger{
     _changeCurrentCellStatus(cell,x,y){
         if(cell.status === CellStatus.WAITING){
             // cell.status = CellStatus.SELECTED
-            this.fenceGroup.fences[x].cells[y].status = CellStatus.SELECTED
+            this.fenceGroup.setCellStatusByXY(x,y,CellStatus.SELECTED) 
             this.skuPending.insertCell(cell,x)
         }
         if(cell.status === CellStatus.SELECTED){
             // cell.status = CellStatus.WAITING
-            this.fenceGroup.fences[x].cells[y].status =CellStatus.WAITING
+            this.fenceGroup.setCellStatusByXY(x,y,CellStatus.WAITING)
             this.skuPending.removeCell(x)
         }
     }
