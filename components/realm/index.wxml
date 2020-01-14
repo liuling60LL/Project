@@ -21,11 +21,19 @@
                             l-class="discount-price"
                             value="{{p.slashedPrice(price,discountPrice).price}}">
                         </l-price>
+
+                        <view class="stock" wx:if="{{stock && stock>=10}}">
+                            库存:{{stock}} 件
+                        </view>
+                        <view class="stock-pinch" wx:if="{{stock && stock<10 && stock !=0}}">
+                            仅剩: {{stock}} 件
+                        </view>
                 </view>
-                <view class="sku-pending">
-                    <text class="" >
-                        请选择：
-                    </text>
+                <view class="sku-pending" wx:if="{{!noSpec}}">
+                    <text class=""  wx:if="{{!skuIntact }}">请选择：</text>
+                    <text class="" wx:if="{{skuIntact}}">已选：</text>
+                    <text class=""  wx:if="{{!skuIntact}}"></text>
+                    <text class=""  wx:else></text>
                 </view>
             </view>
             

@@ -1,5 +1,14 @@
 import {Http} from "../utils/http"
 class Spu{
+
+    static isNoSpec(spu){
+        //唯一且无规格
+        if(spu.sku_list.length === 1 && spu.sku_list[0].specs.length === 0){
+            return true
+        }
+        return false
+    }
+
     static getDetail(id){
         return Http.request({
             url: `spu/id/${id}/detail`,

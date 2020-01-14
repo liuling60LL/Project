@@ -1,5 +1,6 @@
 import { FenceGroup } from "../models/fence-group"
 import { Judger } from "../models/judger"
+import { Spu } from "../../models/spu"
 
 // components/realm/index.js
 Component({
@@ -34,6 +35,13 @@ Component({
       if (!spu) {
           return
       }
+      if(Spu.isNoSpec(spu)){
+        this.setData({
+          noSpec:true
+        })
+        this.bindSkuData(spu.sku_list[0])
+        return;
+      }
       const fenceGroup = new FenceGroup(spu)
       fenceGroup.initFences()
       const judger = new Judger(fenceGroup)
@@ -66,12 +74,15 @@ Component({
         previewImg:sku.img,
         title:sku.title,
         price:sku.price,
-        discountPrice:sku.discount_price
+        discountPrice:sku.discount_price,
+        stock:sku.stock
       })
     },
+    //初始默认数据
     bindInitData(fenceGroup){
       this.setData({
-        fences:fenceGroup.fences//模型对象
+        fences:fenceGroup.fences,//模型对象
+        skuIntact:this.data.judger.isSkuIntact()
       })
     },
 
