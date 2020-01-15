@@ -1,7 +1,7 @@
 import { Cell } from "./cell";
 
 class Fence{
-    valueTitles = [] //规格值 名字
+    // valueTitles = [] //规格值 名字
     specs
     cells = []
     title
@@ -13,6 +13,10 @@ class Fence{
         this.id = specs[0].key_id
     }
     init(){
+        this._initCells()
+    }
+
+    _initCells(){
         this.specs.forEach(s => {
             const existed = this.cells.some(c=>{
                 return c.id === s.value_id

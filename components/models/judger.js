@@ -18,6 +18,17 @@ class Judger{
         return this.skuPending.isIntact()
     }
 
+    getCurrentValues() {
+        return this.skuPending.getCurrentSpecValues()
+    }
+
+    getMissingKeys(){
+        const missingKeyIndex = this.skuPending.getMissingSpecKeysIndex()
+        return missingKeyIndex.map(i =>{
+            return this.fenceGroup.fences[i].title
+        })
+    }
+
     _initSkuPending(){
         const specsLength = this.fenceGroup.fences.length
         this.skuPending = new SkuPending(specsLength)
@@ -64,6 +75,13 @@ class Judger{
                 this.fenceGroup.setCellStatusByXY(x,y,CellStatus.FORBIDDEN)
             }
         })
+    }
+
+    //获取确定的SKU
+    getDeterminateSku() {
+        const code = this.skuPending.getSkuCode()
+        const sku = this.fenceGroup.getSku(code)
+        return sku
     }
 
     //判断路径是否在字典里

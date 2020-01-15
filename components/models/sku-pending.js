@@ -1,4 +1,5 @@
 import { Cell } from "./cell";
+import { Joiner } from "../../utils/joiner";
 
 //Sku选择 存储已选的cell
 class SkuPending{
@@ -10,11 +11,37 @@ class SkuPending{
     }
 
     init(sku){
-        this.size =sku.specs.length
+        // this.size =sku.specs.length
         for(let i =0;i<sku.specs.length;i++){
             const cell = new Cell(sku.specs[i])
             this.insertCell(cell,i)
         }
+    }
+
+    getCurrentSpecValues(){
+        const values = this.pending.map(cell=>{
+           return cell ? cell.spec.values : null
+        })
+        return values //数组
+    }
+
+    getMissingSpecKeysIndex(){
+        const keysIndex = []
+        for(let i =0;i<this.size;i++){
+            if(!this.pending[i]){
+                keysIndex.push[i]
+            }
+        }
+        return keysIndex
+    }
+
+    getSkuCode() {
+        const joiner = new Joiner('#')
+        this.pending.forEach(cell => {
+            const cellCode = cell.getCellCode()
+            joiner.join(cellCode)
+        })
+        return joiner.getStr()
     }
 
     isIntact(){

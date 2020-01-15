@@ -1,6 +1,7 @@
 import { FenceGroup } from "../models/fence-group"
 import { Judger } from "../models/judger"
 import { Spu } from "../../models/spu"
+import { Cell } from "../models/cell"
 
 // components/realm/index.js
 Component({
@@ -36,12 +37,26 @@ Component({
           return
       }
       if(Spu.isNoSpec(spu)){
-        this.setData({
-          noSpec:true
-        })
-        this.bindSkuData(spu.sku_list[0])
-        return;
+        this.processNoSpec(spu)
+      }else{
+        this.processHasSpec(spu)
       }
+    }
+  },
+
+  /**
+   * 组件的方法列表
+   */
+  methods: {
+    //是否有规格
+    processNoSpec(spu){
+      this.setData({
+        noSpec:true
+      })
+      this.bindSkuData(spu.sku_list[0])
+    },
+
+    processHasSpec(spu){
       const fenceGroup = new FenceGroup(spu)
       fenceGroup.initFences()
       const judger = new Judger(fenceGroup)
@@ -52,14 +67,10 @@ Component({
       }else{
         this.bindSpuData()
       }
-      this.bindInitData(fenceGroup)
-    }
-  },
+      this.bindTipData()
+      this.bindFenceGroupData(fenceGroup)
+    },
 
-  /**
-   * 组件的方法列表
-   */
-  methods: {
     bindSpuData(){
       const spu = this.properties.spu
       this.setData({
@@ -78,25 +89,41 @@ Component({
         stock:sku.stock
       })
     },
+
+    bindTipData(){
+      this.setData({
+        skuIntact:this.data.judger.isSkuIntact(),
+        currentValues:this.data.judger.getCurrentValues(),
+        missingKeys:this.data.judger.getMissingKeys()
+      })
+    },
+
     //初始默认数据
-    bindInitData(fenceGroup){
+    bindFenceGroupData(fenceGroup){
       this.setData({
         fences:fenceGroup.fences,//模型对象
-        skuIntact:this.data.judger.isSkuIntact()
       })
     },
 
     //点击cell 触发
     onCellTap(event){
       // console.log(event.detail);
-     const cell = event.detail.cell
+     const data = event.detail.cell
      const x = event.detail.x
      const y = event.detail.y
+
+     const  cell = new Cell(data.spec)
+     cell.status = data.status
+     
      const judger = this.data.judger
      judger.judge(cell,x,y)
-     this.setData({
-      fences:judger.fenceGroup.fences
-     })
+     const skuIntact = judger.isSkuIntact()
+     if(skuIntact){
+      const currentSku = judger.getDeterminateSku()//报错
+      this.bindSkuData(currentSku)
+     }
+     this.bindTipData()
+     this.bindFenceGroupData(judger.fenceGroup)
     }
   }
 })
