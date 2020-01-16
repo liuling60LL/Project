@@ -2,6 +2,7 @@ import { FenceGroup } from "../models/fence-group"
 import { Judger } from "../models/judger"
 import { Spu } from "../../models/spu"
 import { Cell } from "../models/cell"
+import { Cart } from "../../models/cart"
 
 // components/realm/index.js
 Component({
@@ -17,7 +18,8 @@ Component({
    */
   data: {
     judger:Object,
-    previewImg:String
+    previewImg:String,
+    currentSkuCount:Cart.SKU_MIN_COUNT
   },
 
   //生命周期函数
@@ -54,6 +56,7 @@ Component({
         noSpec:true
       })
       this.bindSkuData(spu.sku_list[0])
+      this.setStockStatus(spu.sku_list[0].stock, this.data.currentSkuCount)
     },
 
     processHasSpec(spu){
@@ -64,6 +67,7 @@ Component({
       const defaultSku = fenceGroup.getDefaultSku()
       if(defaultSku){
         this.bindSkuData(defaultSku)
+        this.setStockStatus(defaultSku.stock, this.data.currentSkuCount)
       }else{
         this.bindSpuData()
       }
@@ -105,6 +109,27 @@ Component({
       })
     },
 
+    setStockStatus(stock,currentCount){
+      this.setData({
+        outStock:this.isOutOfStock(stock,currentCount)
+      })
+    },
+
+    isOutOfStock(stock,currentCount){
+      //缺货
+      return stock < currentCount
+    },
+
+    onSelectCount(event){
+      const currentCount =event.detail.count
+      this.data.currentSkuCount = currentCount
+
+      if(this.data.judger.isSkuIntact()){
+        const sku = this.data.judger.getDeterminateSku()
+        this.setStockStatus(sku.stock,currentCount)
+      }
+    },
+
     //点击cell 触发
     onCellTap(event){
       // console.log(event.detail);
@@ -121,6 +146,7 @@ Component({
      if(skuIntact){
       const currentSku = judger.getDeterminateSku()//报错
       this.bindSkuData(currentSku)
+      this.setStockStatus(currentSku.stock,this.data.currentSkuCount)
      }
      this.bindTipData()
      this.bindFenceGroupData(judger.fenceGroup)

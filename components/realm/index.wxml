@@ -46,6 +46,14 @@
         <s-fence x="{{index}}" bind:celltap="onCellTap" fence="{{item}}"></s-fence>
     </block>
     <view class="counter-container" >
-        <!-- <l-counter></l-counter> -->
+        <text >购买数量</text>
+        <s-counter bind:lintap="onSelectCount"></s-counter>
     </view>
+</view>
+<view class="bottom-btn" wx:if="{{!outStock}}"> 
+    <text >加入购物车</text>
+    <text >立即购买</text>
+</view>
+<view class="bottom-btn out-stock" wx:else>
+    <text >暂时缺货</text>
 </view>
