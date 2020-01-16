@@ -20,7 +20,8 @@ class SkuPending{
 
     getCurrentSpecValues(){
         const values = this.pending.map(cell=>{
-           return cell ? cell.spec.values : null
+            // console.log(cell);
+           return cell ? cell.spec.value : null
         })
         return values //数组
     }
@@ -29,7 +30,7 @@ class SkuPending{
         const keysIndex = []
         for(let i =0;i<this.size;i++){
             if(!this.pending[i]){
-                keysIndex.push[i]
+                keysIndex.push(i)
             }
         }
         return keysIndex
@@ -45,11 +46,11 @@ class SkuPending{
     }
 
     isIntact(){
-        if(this.size !== this.pending.length){
-            return false
-        }
-        for (let i =0;i<this.length;i++){
-            if(this._isEmptyPart(index)){
+        // if(this.size !== this.pending.length){
+        //     return false
+        // }
+        for (let i = 0; i < this.size; i++) {
+            if (this._isEmptyPart(i)) {//不理解
                 return false
             }
         }
