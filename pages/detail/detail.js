@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    showRealm:false
   },
 
   /**
@@ -18,6 +18,18 @@ Page({
     const spu = await Spu.getDetail(pid)
     this.setData({
       spu
+    })
+  },
+
+  onAddToCart(event){
+    this.setData({
+      showRealm:true
+    })
+  },
+
+  onBuy(event){
+    this.setData({
+      showRealm:true
     })
   },
 

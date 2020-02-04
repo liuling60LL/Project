@@ -1,5 +1,5 @@
 <wxs src="../../wxs/price.wxs" module="p"></wxs>
-<view class="container" >
+<scroll-view class="container" scroll-y="{{true}}">
     <view class="sku-preview">
         <image src="{{previewImg}}" class="sku-img"></image>
         <view class="sku-description" >
@@ -49,7 +49,7 @@
         <text >购买数量</text>
         <s-counter bind:lintap="onSelectCount"></s-counter>
     </view>
-</view>
+</scroll-view>
 <view class="bottom-btn" wx:if="{{!outStock}}"> 
     <text >加入购物车</text>
     <text >立即购买</text>
