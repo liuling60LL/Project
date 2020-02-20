@@ -3,6 +3,12 @@ const CellStatus = {
     SELECTED:'selected',
     WAITING:'waiting'
 }
+
+const ShoppingWay = {
+    CART:'cart',
+    BUY:'buy'
+}
 export {
-    CellStatus
+    CellStatus,
+    ShoppingWay
 }

@@ -3,7 +3,11 @@
     "pages/home/home",
     "components/category-grid/index",
     "components/spu-scroll/index",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/cart/cart",
+    "pages/category/category",
+    "pages/my/my",
+    "pages/search/search"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -11,6 +15,37 @@
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black",
     "onReachBottomDistance": 50
+  },
+  "tabBar": {
+    "borderStyle": "black",
+    "color": "#333333",
+    "selectedColor": "#333333",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/home/home",
+        "iconPath": "imgs/Tabbar/home@dis.png",
+        "selectedIconPath": "imgs/tabbar/home.png"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "text": "分类",
+        "iconPath": "imgs/tabbar/category@dis.png",
+        "selectedIconPath": "imgs/tabbar/category.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "imgs/tabbar/cart@dis.png",
+        "selectedIconPath": "imgs/tabbar/cart.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "imgs/tabbar/my@dis.png",
+        "selectedIconPath": "imgs/tabbar/my.png"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
@@ -20,10 +55,12 @@
     "s-spu-preview": "/components/spu-preview/index",
     "l-tag": "/miniprogram_npm/lin-ui/tag/index",
     "l-loadmore": "/miniprogram_npm/lin-ui/loadmore/index",
-    "l-counter":"/miniprogram_npm/lin-ui/counter/index",
-    "s-counter":"/components/counter/index",
-    "l-icon":"/miniprogram_npm/lin-ui/icon/index",
+    "l-counter": "/miniprogram_npm/lin-ui/counter/index",
+    "s-counter": "/components/counter/index",
+    "l-icon": "/miniprogram_npm/lin-ui/icon/index",
     "l-badge": "/miniprogram_npm/lin-ui/badge/index",
-    "l-popup": "/miniprogram_npm/lin-ui/popup/index"
+    "l-popup": "/miniprogram_npm/lin-ui/popup/index",
+    "l-button": "/miniprogram_npm/lin-ui/button/index",
+    "l-segment": "/miniprogram_npm/lin-ui/segment/index"
   }
 }
