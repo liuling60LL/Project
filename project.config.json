@@ -67,6 +67,14 @@
 					"id": -1,
 					"name": "pages/category/category",
 					"pathName": "pages/category/category",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/search/search",
+					"pathName": "pages/search/search",
+					"query": "",
 					"scene": null
 				}
 			]
