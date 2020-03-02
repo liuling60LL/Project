@@ -2,6 +2,7 @@
 import {getSystemSize} from "../../utils/system";
 import { px2rpx } from "../../miniprogram_npm/lin-ui/utils/util";
 import { Categories } from "../../models/categories";
+import {SpuListType} from "../../core/enum";
 Page({
 
   /**
@@ -57,6 +58,26 @@ Page({
       segHeight:h
     })
   },
+
+  onSegChange(event) {
+    const rootId = event.detail.activeKey
+    console.log(rootId)
+    const currentSubs = this.data.categories.getSubs(rootId)
+    const currentRoot = this.data.categories.getRoot(rootId)
+
+    this.setData({
+        currentSubs,
+        currentBannerImg:currentRoot.img
+    })
+},
+
+onJumpToSpuList(event) {
+    const cid = event.detail.cid;
+
+    wx.navigateTo({
+        url: `/pages/spu-list/spu-list?cid=${cid}&type=${SpuListType.SUB_CATEGORY}`
+    })
+},
 
   /**
    * 生命周期函数--监听页面初次渲染完成

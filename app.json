@@ -7,7 +7,8 @@
     "pages/cart/cart",
     "pages/category/category",
     "pages/my/my",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/spu-list/spu-list"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -49,8 +50,6 @@
   },
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
-    "l-grid": "./miniprogram_npm/lin-ui/grid/index",
-    "l-grid-item": "/miniprogram_npm/lin-ui/grid-item/index",
     "l-price": "/miniprogram_npm/lin-ui/price/index",
     "s-spu-preview": "/components/spu-preview/index",
     "l-tag": "/miniprogram_npm/lin-ui/tag/index",
@@ -61,6 +60,9 @@
     "l-badge": "/miniprogram_npm/lin-ui/badge/index",
     "l-popup": "/miniprogram_npm/lin-ui/popup/index",
     "l-button": "/miniprogram_npm/lin-ui/button/index",
-    "l-segment": "/miniprogram_npm/lin-ui/segment/index"
+    "l-segment": "/miniprogram_npm/lin-ui/segment/index",
+    "l-segment-item": "/miniprogram_npm/lin-ui/segment-item/index",
+    "l-grid": "/miniprogram_npm/lin-ui/grid/index",
+    "l-grid-item": "/miniprogram_npm/lin-ui/grid-item/index"
   }
 }

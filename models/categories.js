@@ -10,12 +10,18 @@ class Categories{
         this.roots = data.roots
         this.subs = data.subs
     }
-
-    getRoots(){
+    
+    getRoots() {
         return this.roots
     }
-    getSubs(rootId){
-        return this.roots.find(r=>r.id === rootId)
+
+    getRoot(rootId) {
+        return this.roots.find(r=>r.id == rootId)
+    }
+
+    getSubs(parentId) {
+        //filter返回数组
+        return this.subs.filter(sub=>sub.parent_id == parentId)
     }
 }
 export {
