@@ -1,13 +1,12 @@
 {
   "pages": [
-    "pages/my/my",
     "pages/home/home",
     "components/category-grid/index",
     "components/spu-scroll/index",
     "pages/detail/detail",
     "pages/cart/cart",
     "pages/category/category",
-    
+    "pages/my/my",
     "pages/search/search",
     "pages/spu-list/spu-list",
     "components/my-banner/index",

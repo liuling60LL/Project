@@ -1,6 +1,5 @@
 <!--components/my-order-panel/index.wxml-->
 <view class="inner-container">
-  <l-icon name="unpaid" l-class="sleeve"></l-icon>
     <view class="title-row">
         <text>我的订单</text>
     </view>
@@ -9,7 +8,6 @@
             <l-badge show="{{unpaidCount!==0}}" shape="circle" max-count="99" value="{{unpaidCount}}">
                 <l-icon name="unpaid" l-class="sleeve"></l-icon>
             </l-badge>
-            <l-icon name="unpaid" l-class="sleeve"></l-icon>
             <text>待支付</text>
         </view>
         <view data-key="2" bind:tap="onGotoMyOrder" class="icon-item">
