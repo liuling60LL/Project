@@ -10,8 +10,8 @@
             <l-list bind:lintap="onGotoMyOrder" icon="order1" l-icon-class="sleeve-order" l-class-content="list-item" title="全部订单"></l-list>
             <l-list bind:lintap="onGotoMyCoupon" icon="coupon" l-icon-class="sleeve-coupon" l-class-content="list-item" title="优惠券"></l-list>
             <l-list bind:lintap="onMgrAddress" icon="address2" l-icon-class="sleeve-address" l-class-content="list-item" title="收货地址"></l-list>
-            <l-list bind:lintap="onGotoLinUI" icon="sunny1" l-icon-class="sleeve-sunny" l-right-class="right-desc" right-desc="`风袖`使用LinUI组件库构建" l-class-content="list-item" title="LinUI"></l-list>
-            <l-list bind:lintap="onGotoMyCourse" icon="flower" l-class="no-line" l-icon-class="sleeve-flower" l-right-class="right-desc" right-desc="学习开发`风袖`" l-class-content="list-item" title="课程"></l-list>
+            <!-- <l-list bind:lintap="onGotoLinUI" icon="sunny1" l-icon-class="sleeve-sunny" l-right-class="right-desc" right-desc="`风袖`使用LinUI组件库构建" l-class-content="list-item" title="LinUI"></l-list>
+            <l-list bind:lintap="onGotoMyCourse" icon="flower" l-class="no-line" l-icon-class="sleeve-flower" l-right-class="right-desc" right-desc="学习开发`风袖`" l-class-content="list-item" title="课程"></l-list> -->
         </view>
 
     </view>

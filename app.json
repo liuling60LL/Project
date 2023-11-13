@@ -1,16 +1,20 @@
 {
   "pages": [
+    "pages/my/my",
     "pages/home/home",
     "components/category-grid/index",
     "components/spu-scroll/index",
     "pages/detail/detail",
     "pages/cart/cart",
     "pages/category/category",
-    "pages/my/my",
     "pages/search/search",
     "pages/spu-list/spu-list",
     "components/my-banner/index",
-    "components/my-order-panel/index"
+    "components/my-order-panel/index",
+    "pages/my-order/my-order",
+    "pages/my-coupon/my-coupon",
+    "components/my-order-item/index",
+    "components/coupon/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -70,6 +74,8 @@
     "s-spu-preview-r": "/components/spu-preview-r/index",
     "l-loading": "/miniprogram_npm/lin-ui/loading/index",
     "l-list": "/miniprogram_npm/lin-ui/list/index",
-    "l-avatar": "/miniprogram_npm/lin-ui/avatar/index"
-  }
+    "l-avatar": "/miniprogram_npm/lin-ui/avatar/index",
+    "s-coupon": "/components/coupon/index"
+  },
+  "requiredPrivateInfos": ["chooseAddress"]
 }
