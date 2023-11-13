@@ -1,19 +1,22 @@
 {
   "pages": [
+    "pages/my/my",
     "pages/home/home",
     "components/category-grid/index",
     "components/spu-scroll/index",
     "pages/detail/detail",
     "pages/cart/cart",
     "pages/category/category",
-    "pages/my/my",
+    
     "pages/search/search",
-    "pages/spu-list/spu-list"
+    "pages/spu-list/spu-list",
+    "components/my-banner/index",
+    "components/my-order-panel/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "60の好物商店",
     "navigationBarTextStyle": "black",
     "onReachBottomDistance": 50
   },
@@ -25,7 +28,7 @@
       {
         "text": "首页",
         "pagePath": "pages/home/home",
-        "iconPath": "imgs/Tabbar/home@dis.png",
+        "iconPath": "imgs/tabbar/home@dis.png",
         "selectedIconPath": "imgs/tabbar/home.png"
       },
       {
@@ -66,6 +69,8 @@
     "l-grid-item": "/miniprogram_npm/lin-ui/grid-item/index",
     "l-search-bar": "/miniprogram_npm/lin-ui/search-bar/index",
     "s-spu-preview-r": "/components/spu-preview-r/index",
-    "l-loading": "/miniprogram_npm/lin-ui/loading/index"
+    "l-loading": "/miniprogram_npm/lin-ui/loading/index",
+    "l-list": "/miniprogram_npm/lin-ui/list/index",
+    "l-avatar": "/miniprogram_npm/lin-ui/avatar/index"
   }
 }

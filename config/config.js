@@ -1,6 +1,6 @@
 const config ={
-  appkey:'Ozd7pVNYCCAIukxs',
-  apiBaseUrl:'http://se.7yue.pro/v1/'
+  appkey:'Y1uUvtj5oo7haTlC',
+  apiBaseUrl:'http://se.talelin.com/v1/'
 };
 export {
   config

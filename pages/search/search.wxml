@@ -36,7 +36,7 @@
                 <view style="flex:1"></view>
             </view>
             <view class="history-tags">
-                <block wx:for="{{hotTags}}" wx:key="{{index}}">
+                <block wx:for="{{hotTags}}" wx:key="index">
                     <l-tag  bind:lintap="onSearch"
                             select="{{item.highlight}}" l-class="tag" l-select-class="tag-selected"
                            name="{{item.title}}">

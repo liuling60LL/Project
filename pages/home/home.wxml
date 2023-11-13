@@ -1,44 +1,44 @@
 <!--pages/home/home.wxml-->
 <l-loadmore show="{{true}}" type="{{loadingType}}" end-text="我是有底线的～">
 <view slot="content">
-<!-- 首图 -->
- <image class="top-theme" src="{{themeA.entrance_img}}"></image>
- <!-- 轮播图 -->
- <swiper class="swiper" 
-    indicator-dots="{{true}}" 
-    indicator-active-color="#157658" 
-    autoplay="{{true}}" 
-    interval="{{5000}}" 
-    duration="{{500}}"
-    circular="{{true}}">
-     <block wx:for="{{bannerB.items}}" wx:key="{{index}}">
-         <swiper-item>
-             <image class="swiper" src="{{item.img}}" />
-         </swiper-item>
-     </block>
- </swiper>
- <!-- 六宫格 -->
- <s-category-grid grid="{{grid}}"></s-category-grid>
- <!-- 优惠券活动入口 -->
- <image  src="{{activity.entrance_img}}" class="activity" />
- <!-- 每周上新 -->
- <s-spu-scroll 
-  wx:if="{{themeE.online}}"
-  theme="{{themeE}}"
-  spu-list="{{themeESpu}}"
- >
- </s-spu-scroll>
-<!-- 甄选入口 -->
- <image  src="{{themeF.entrance_img}}" class="quality" />
-<!-- 热卖榜单 -->
-<s-hot-list banner="{{bannerG}}"></s-hot-list>
-<image src="{{themeH.entrance_img}}" class="fashion"/>
-<!-- 为你推荐 -->
-<view class="spu-bottom">
+  <!-- 首图 -->
+  <image class="top-theme" src="{{themeA.entrance_img}}"></image>
+  <!-- 轮播图 -->
+  <swiper class="swiper"
+      indicator-dots="{{true}}"
+      indicator-active-color="#157658"
+      autoplay="{{true}}"
+      interval="{{5000}}"
+      duration="{{500}}"
+      circular="{{true}}">
+      <block wx:for="{{bannerB.items}}" wx:key="index">
+          <swiper-item>
+              <image class="swiper" src="{{item.img}}" />
+          </swiper-item>
+      </block>
+  </swiper>
+  <!-- 六宫格 -->
+  <s-category-grid grid="{{grid}}"></s-category-grid>
+  <!-- 优惠券活动入口 -->
+  <image  src="{{activity.entrance_img}}" class="activity" />
+  <!-- 每周上新 -->
+  <s-spu-scroll
+    wx:if="{{themeE.online}}"
+    theme="{{themeE}}"
+    spu-list="{{themeESpu}}"
+  >
+  </s-spu-scroll>
+  <!-- 甄选入口 -->
+  <image  src="{{themeF.entrance_img}}" class="quality" />
+  <!-- 热卖榜单 -->
+  <s-hot-list banner="{{bannerG}}"></s-hot-list>
+  <image src="{{themeH.entrance_img}}" class="fashion"/>
+  <!-- 为你推荐 -->
+  <view class="spu-bottom">
     <image src="/imgs/home/title@interest.png" class="title-spu-bottom"/>
     <!-- 瀑布流 -->
     <l-water-flow generic:l-water-flow-item="s-spu-preview"></l-water-flow>
-</view>
+  </view>
 
 </view>
 </l-loadmore >
