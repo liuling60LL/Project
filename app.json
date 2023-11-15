@@ -1,11 +1,11 @@
 {
   "pages": [
-    "pages/my/my",
     "pages/home/home",
     "components/category-grid/index",
     "components/spu-scroll/index",
     "pages/detail/detail",
     "pages/cart/cart",
+    "pages/my/my",
     "pages/category/category",
     "pages/search/search",
     "pages/spu-list/spu-list",
@@ -14,7 +14,10 @@
     "pages/my-order/my-order",
     "pages/my-coupon/my-coupon",
     "components/my-order-item/index",
-    "components/coupon/index"
+    "components/coupon/index",
+    "components/cart-item/index",
+    "components/empty/index",
+    "components/empty-screen/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -75,7 +78,13 @@
     "l-loading": "/miniprogram_npm/lin-ui/loading/index",
     "l-list": "/miniprogram_npm/lin-ui/list/index",
     "l-avatar": "/miniprogram_npm/lin-ui/avatar/index",
-    "s-coupon": "/components/coupon/index"
+    "s-coupon": "/components/coupon/index",
+    "s-empty": "/components/empty/index",
+    "l-water-flow": "/miniprogram_npm/lin-ui/water-flow/index"
   },
-  "requiredPrivateInfos": ["chooseAddress"]
+  "requiredPrivateInfos": [
+    "chooseAddress",
+    "getFuzzyLocation",
+    "choosePoi"
+  ]
 }
