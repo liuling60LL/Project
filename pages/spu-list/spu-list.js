@@ -12,7 +12,8 @@ Page({
         empty: false,
         paging: null,
         loading: true,
-        loadingType: 'loading'
+        loadingType: 'loading',
+        list:[]
     },
 
     /**
@@ -22,7 +23,7 @@ Page({
         const cid = options.cid
         const type = options.type
         const tName = options.tname
-        console.log('123',cid, type)
+        console.log('123',cid, type,SpuListType)
         switch (type) {
             case SpuListType.ROOT_CATEGORY:
                 this.initCategoryData(cid, true)
@@ -68,7 +69,6 @@ Page({
     },
 
     initData(data) {
-        console.log('111',data)
         if(!data){
             return
         }
@@ -78,9 +78,12 @@ Page({
                 loading: false
             })
         }
-        // if (data.diff){
-            // wx.lin.renderWaterFlow(data.items)
-        // }
+        if (data){
+            this.setData({
+                list: data.items
+            })
+            wx.lin.renderWaterFlow(data.items)
+        }
         if(!data.moreData){
            this.setData({
                loadingType: 'end'
@@ -89,10 +92,12 @@ Page({
     },
 
     empty() {
-      console.log('empty')
-        // wx.lin.showEmptyScreen({
-        //     text: '该分类暂时还没有商品'
-        // })
+        // wx.navigateTo({
+        //     url: '/components/empty-screen/index',
+        // });
+        wx.lin.showEmptyScreen({
+            text: '该分类暂时还没有商品'
+        })
     },
 
     async onReachBottom() {

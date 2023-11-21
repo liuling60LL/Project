@@ -1,66 +1,52 @@
-// components/empty-screen/index.js
-Page({
+// components/empty-scrren/index.js
+Component({
+  /**
+   * 组件的属性列表
+   */
+  properties: {
+    text: {
+      type: String,
+      value: '暂无相关商品'
+    },
+    show: {
+      type: Boolean,
+      value: false
+    }
+  },
 
   /**
-   * 页面的初始数据
+   * 组件的初始数据
    */
   data: {
 
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-
+  lifetimes: {
+    attached() {
+      this._init()
+    }
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
+   * 组件的方法列表
    */
-  onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  methods: {
+    _init() {
+      wx.lin = wx.lin || {};
+      wx.lin.showEmptyScreen = (options) => {
+        const {
+          text = this.properties.text
+        } = {...options};
+        this.setData({
+          text,
+          show: true
+        });
+      };
+      wx.lin.hideEmpty = () => {
+        this.setData({
+          show: false
+        });
+      };
+    },
   }
 })

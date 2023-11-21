@@ -32,7 +32,7 @@ Component({
       //移除时执行
     }
   },
-  
+
   //监听器 -最适合处理数据
   observers:{
     'spu': function (spu) {
@@ -143,9 +143,17 @@ Component({
       const currentCount =event.detail.count
       this.data.currentSkuCount = currentCount
 
-      if(this.data.judger.isSkuIntact()){
-        const sku = this.data.judger.getDeterminateSku()
-        this.setStockStatus(sku.stock,currentCount)
+      // if(this.data.judger.isSkuIntact()){
+      //   const sku = this.data.judger.getDeterminateSku()
+      //   this.setStockStatus(sku.stock,currentCount)
+      // }
+      if (this.noSpec()) {
+        this.setStockStatus(this.getNoSpecSku().stock, currentCount)
+      } else {
+          if (this.data.judger.isSkuIntact()) {
+            const sku = this.data.judger.getDeterminateSku()
+            this.setStockStatus(sku.stock, currentCount)
+          }
       }
     },
 
@@ -158,7 +166,7 @@ Component({
 
      const  cell = new Cell(data.spec)
      cell.status = data.status
-     
+
      const judger = this.data.judger
      judger.judge(cell,x,y)
      const skuIntact = judger.isSkuIntact()
@@ -170,6 +178,41 @@ Component({
      this.bindTipData()
      this.bindFenceGroupData(judger.fenceGroup)
      this.triggerSpecEvent()
-    }
+    },
+    onBuyOrCart(event) {
+      console.log('dfff',Spu.isNoSpec(this.properties.spu))
+      if (!Spu.isNoSpec(this.properties.spu)) {
+          this.shoppingNoSpec();
+      } else {
+          this.shoppingVarious();
+      }
+    },
+    shoppingNoSpec() {
+      this._triggerShoppingEvent(this.getNoSpecSku())
+    },
+    getNoSpecSku() {
+      return this.properties.spu.sku_list[0]
+    },
+    shoppingVarious() {
+      const intact = this.data.judger.isSkuIntact();
+      if (!intact) {
+          const missKeys = this.data.judger.getMissingKeys()
+          wx.showToast({
+              icon: "none",
+              title: `请选择：${missKeys.join('，')}`,
+              duration: 3000
+          })
+          return
+      }
+      this._triggerShoppingEvent(this.data.judger.getDeterminateSku())
+    },
+    _triggerShoppingEvent(sku) {
+      this.triggerEvent('shopping', {
+          orderWay: this.properties.orderWay,
+          spuId: this.properties.spu.id,
+          sku: sku,
+          skuCount: this.data.currentSkuCount,
+      })
+    },
   }
 })

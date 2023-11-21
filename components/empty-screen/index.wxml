@@ -1,2 +1,7 @@
 <!--components/empty-screen/index.wxml-->
-<text>components/empty-screen/index.wxml</text>
+<l-status-show  describe="{{text}}"
+  show="{{show}}"
+  l-image-class="img"
+  l-describe-class="describe"
+  image="/imgs/empty.png">
+</l-status-show>

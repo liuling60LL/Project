@@ -80,7 +80,9 @@
     "l-avatar": "/miniprogram_npm/lin-ui/avatar/index",
     "s-coupon": "/components/coupon/index",
     "s-empty": "/components/empty/index",
-    "l-water-flow": "/miniprogram_npm/lin-ui/water-flow/index"
+    "l-water-flow": "/miniprogram_npm/lin-ui/water-flow/index",
+    "s-empty-screen": "/components/empty-screen/index",
+    "l-status-show": "/miniprogram_npm/lin-ui/status-show/index"
   },
   "requiredPrivateInfos": [
     "chooseAddress",
